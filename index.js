@@ -48,7 +48,7 @@ app.get("/search", (req, res) => {
   if (!q) {
     res.send(`<h1>Tidak dapat mencari apa yang kamu cari</h1>`);
   }
-  res.send(`<h1>Pencarian anda adalah : ${q}</h1>`);
+  res.send(`<h1>Pencarian anda sayang sekali kamu : ${q}</h1>`);
 });
 
 //WAJIB DI BAWAH
