@@ -25,6 +25,18 @@ app.get("/blog/:judul", (req, res) => {
   res.send(`Kita sedang berada di halaman: ${judul}`);
 });
 
+
+// url banyak uri 
+app.get("/blog/:categori/:judul/:jenis", (req, res) => {
+  const { categori } = req.params;
+  const { judul } = req.params;
+  const { jenis } = req.params;
+
+  res.send(
+    `Kita mau ambil data dengan kategori: ${categori} dengan judul: ${judul} dengan jenis:${jenis}`
+  );
+});
+
 //WAJIB DI BAWAH
 app.get("*", (req, res) => {
   res.send("<h1>Halaman Yang Anda Akses Tidak Tersedia");
