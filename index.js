@@ -25,8 +25,7 @@ app.get("/blog/:judul", (req, res) => {
   res.send(`Kita sedang berada di halaman: ${judul}`);
 });
 
-
-// url banyak uri 
+// url banyak uri
 app.get("/blog/:categori/:judul/:jenis", (req, res) => {
   const { categori } = req.params;
   const { judul } = req.params;
@@ -35,6 +34,21 @@ app.get("/blog/:categori/:judul/:jenis", (req, res) => {
   res.send(
     `Kita mau ambil data dengan kategori: ${categori} dengan judul: ${judul} dengan jenis:${jenis}`
   );
+});
+
+//MENANGKAP PARAMETER QUERY STRING
+// http://localhost:3000/search?kategori=1&lima=2
+
+// app.get("/search", (req, res) => {
+//   console.log(req.query);
+// });
+
+app.get("/search", (req, res) => {
+  const { q } = req.query;
+  if (!q) {
+    res.send(`<h1>Tidak dapat mencari apa yang kamu cari</h1>`);
+  }
+  res.send(`<h1>Pencarian anda adalah : ${q}</h1>`);
 });
 
 //WAJIB DI BAWAH
